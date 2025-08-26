@@ -1,0 +1,21 @@
+apply plugin: 'maven-publish'
+
+
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                setGroupId 'com.rizia'
+                setArtifactId 'android-support-pdfium'
+                version '1.0.1-put'
+                artifact(androidSourcesJar)
+                artifact(bundleReleaseAar)
+            }
+        }
+    }
+}
