@@ -25,6 +25,17 @@ android {
         versionCode 2
         versionName "2.0.0"
         buildConfigField "String", "VERSION_NAME", "\"${versionName}\""
+
+        ndk {
+            abiFilters "arm64-v8a", "x86", "x86_64"
+        }
+
+    }
+    ndkVersion '29.0.13599879'
+    externalNativeBuild {
+        ndkBuild {
+            path "src/main/jni/Android.mk"
+        }
     }
     buildTypes {
         release {
@@ -50,8 +61,6 @@ android {
         buildConfig true
     }
 
-    ndkVersion '28.2.13676358'
-    
     // Configure AAR filename to include version
     libraryVariants.all { variant ->
         variant.outputs.all {

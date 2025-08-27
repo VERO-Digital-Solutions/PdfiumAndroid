@@ -10,9 +10,9 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                setGroupId 'com.rizia'
+                setGroupId 'com.github.VERO-Digital-Solutions'
                 setArtifactId 'PdfiumAndroid'
-                version '1.0.1-put'
+                version '1.0.1'
                 artifact(androidSourcesJar)
                 artifact(bundleReleaseAar)
             }
